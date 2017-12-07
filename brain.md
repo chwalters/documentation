@@ -1,84 +1,119 @@
-# Brain
+[BRAIN]
 
-The brain is a main component of Kalliope. It's a module that gives a configuration of your own personal assistant and, so, determines it's behavior and fonctionnalities.
+**-------**
 
-Brain is composed by synapses: a synapse is the link between input and output actions.
+The Brain is the major and main component of Intelora. 
 
-An input action, called a "[signal](signals.md)" can be:
-- **an order:** Something that has been spoke out loud by the user.
-- **an event:** A date or a frequency (E.G: repeat each morning at 8:30)
-- **a mqtt message** A message received on a MQTT topic
-- A signal made the community
-- **No signal**. Then the synapse can be only called from another synapse or by the API
+It is where the configuration of your own Intelligent Personal Assistant takes place. In here, functionalities can be determined as well as its behavior. The Brain is made up of Synapses.
 
-An output action is
-- **a list of neurons:** A [neuron](neurons.md) is a module or plugin that will perform some actions like simply talking, run a script, run a command or call a web service.
+The Synapes is the one who is capable of linking the input and output processes.
 
-Brain is expressed in YAML format (see YAML Syntax) and has a minimum of syntax, which intentionally tries to not be a programming language or script, 
-but rather a model of a configuration or a process.
-Kalliope will look for the brain in the order bellow:
-- From you current folder, E.g `/home/pi/my_kalliope/brain.yml`
-- From `/etc/kalliope/brain.yml`
-- From the default `brain.yml`. You can take a look into the default [`brain.yml`](../kalliope/brain.yml) file which is located in the root of the project tree.
+An input action, is referred to as a [signal] (signals.md)
 
-Let's take a look on a basic synapse in our brain:
+A [signal] can be the following:
+
+#an order: Whereas it is something that has been spoke out loud by the user.
+#an event: A date or a frequency (Example: repeat each morning at 8:30)
+#a mqtt message: A message received on a MQTT topic.
+#a signal made the community
+#No signal: Then the synapse can be only called from another synapse or by the API.
+
+
+An output action, is referred to as a [neuron] (neurons.md)
+
+A [neuron] is a module or plugin where some actions are performed, such as simply talking, running a script, running a command or even calling a web service.
+
+
+The Brain is expressed in YAML (Yet Another Markup Language) format and has a minimum of syntax, which intentionally tries not be a programming language or script,  but it rather implicates as a model of a configuration or a process.
+
+Intelora will look for the brain in the order given below:
+- It starts from the user's current folder.
+Example, `/home/pi/my_intelora/brain.yml`
+
+- From `/etc/intelora/brain.yml`
+
+- From the default, `brain.yml`. You can take a look into the default [`brain.yml`](../intelora/brain.yml) file which is located in the root of the project tree.
+
+Here's a basic synapse in the Brain:
 
 ```yml
 ---
   - name: "Say-hello"
     signals:
       - order: "say hello"
-    neurons:      
+    neurons:
       - say:
           message: "Hello, sir"    
 ```
 
-Let's break this down in sections so we can understand how the file is built and what each part means.
+The parts were illustrated by section to be fully understood by the user how the file is made and every part means.
 
-The file starts with: `---`. This is a requirement for YAML to interpret the file as a proper document.
+The file starts with: `---` 
+-> This is a major requirement for YAML to interpret the file as a proper document.
 
-Items that begin with a ```-``` are considered as list items. Items have the format of ```key: value``` where value can be a simple string or a sequence of other items.
+Items that begin with a ```-``` are considered as [list items]. 
+Items have the format of ```key: value``` where value can be a simple string or a sequence of other items.
 
-At the top level we have a "name" tag. This is the **unique identifier** of the synapse. It must be an unique word with the only accepted values : alphanumerics and dash. ([a - zA - Z0 - 9\-])
+At the top level, there's the "name" tag. This is what we call, [unique identifier] of the synapse. It must be a unique word with the only accepted values, which are alphanumerics and dash. ([a - zA - Z0 - 9\-])
+
 ```yml
 - name: "Say-hello"
 ```
 
+The first part, called [signals] is the list of input actions. It works just as like the neurons. The user must place here at least one action.
 
-The first part, called **signals** is a list of input actions. This works exactly the same way as neurons. You must place here at least one action.
-In the following example, we use just one signal, an order. See the complete list of [available signals](signals.md) here.
+In the following example, one signal was only used, which is we call an [order].
+
+See the complete list of [available signals] in (signals.md).
+
 ```yml
 signals:
   - order: "say-hello"
 ```
 
-You can add as many orders as you want for the signals. Even if literally they do not mean the same thing (For example order "say hello" and order "adventure" or whatever) as long they are in the same synaps, they will trigger the same action defined in neurons. 
+The user can append as much orders as they want for the signals. Orders can be appended even if they really do not mean the same thing. (For example, order "say hello" and order "adventure" or whatever), as long as they are in the same synapse, they will trigger the same action defined in neurons. 
 
-Note that you are not limited by the exact sentence you put in your order. Kalliope uses the matching, it means that you can pronounce the sentence which contains your order (so, can be much longer) and it will lauch an attached task anyway. In this example, the task attached to order "say hello" will be launched even if you say
-- "say hello Kalliope"
-- "Kalliope, say hello"
+It should be noted that it's not necessary for the users to put the exact sentence in the [order]. Intelora uses matching, in which the user can pronounce the sentence that contains the [order] and it will launch an attached task anyway.
+ 
+In this example, the task attached to order "say hello" will be launched even if you say either of the following:
+
+- "say hello Intelora"
+- "Intelora, say hello"
 - "I want you to say hello"
 - "i say goodbye you say hello"
 - "whatever I say as long it contains say hello"
 
-To know if your order will be triggered by Kalliope, we recommend you to [use the GUI](kalliope_cli.md) for testing your STT engine.
+To check if the user's order will be triggered by Intelora, we suggest to [use the GUI] (intelora cli.md) for testing your STT engine.
 
->**Note:**
-You must pay attention to define the orders as precise as possible. As Kalliope is based on matching, if you define your orders in different synapses too similiary, Kalliope risks to trigger more actions that you were expecting. For exemple, if you define two different synapses as shown below:
+[NOTE]
+
+Pay attention in defining the orders as precise as possible. As Intelora is based on matching, if the user defined the orders in different synapses similarly, Intelora risks to trigger more actions than the user is expecting.
+
+As an example, if two different synapses was defined as shown below:
+
 ```yml
 - name: "Say-hello"
   signals:
     - order: "say hello"
 ```
-and 
+and
+ 
 ```yml
 - name: "Say-something"
   signals:
     - order: "say"
 ```
-When you will pronounce "say hello", it will trigger both synapses. 
 
-Then we have the neurons declaration. Neurons are modules that will be executed when the input action is triggered. You can define as many neurons as you want to the same input action (for example: say somethning, then do something etc...). This declaration contains a list (because it starts with a "-") of neurons
+When the user will pronounce "say hello", it will trigger both synapses. 
+
+---
+
+[Neurons declaration]
+
+Neurons are the modules in which when the input action is triggered, it will be executed. 
+Defining as many neurons as you want to the same input action, is possible. (for example: say somethning, then do something etc...) 
+This declaration contains a list (because it starts with a "-") of neurons.
+
 ```yml
 neurons:
     - neuron_1_name
@@ -86,58 +121,63 @@ neurons:
     - another_neuron
 ```
 
-The order of execution of neurons is defined by the order in which they are listed in neurons declaration.
+The sequence execution of neurons is defined by the order in which they are properly listed within the neurons declaration.
 
-Some neurons need parameters that can be passed as arguments following the syntax bellow:
+There are some neurons that need parameters that can be passed as arguments, following the syntax below:
 ```yml
 neurons:
     - neuron_name:
         parameter1: "value1"
         parameter2: "value2"
 ```
-Note here that parameters are indented with one tabulation bellow the neuron's name (YAML syntax requirement).
+It should be noted that parameters are indented with one tabulation below the neuron's name because it is a YAML syntax requirement.
 
-In this example, the neuron called "say" will make Kalliope speak out loud the sentence in parameter **message**.
-See the complete list of [available neurons](neuron_list.md) here.
+In the example, the neuron called "say" will make Intelora speak out loud the sentence in parameter **message**.
+See the complete list of [available neurons] in (neuron_list.md).
 
-## Manage synapses
+[Managing Synapses]
 
-Kalliope provides also a REST API to manage your synapses (get the list, get one, run one), refer to [rest api documentation](rest_api.md) for more details.
+Intelora also provides a REST API to handle the synapses (get the list, get one, run one). See the [rest api documentation] in (rest_api.md), for more information.
 
 
-## Split the brain
+[Splitting the brain]
 
-If you want a better visibly, or simply sort your actions in different files, you can split the main brain file into multiple ones.
+In intelora, there's a way where you can simply sort your actions in different files for better visibility. You can split the main brain file into multiple ones.
 
-To do that, use the import statement in the entry brain.yml file with the following syntax:
+To do that, you will use the import statement in the entry brain.yml file with the following syntax:
+
 ```yml
   - includes:
       - path/to/sub_brain.yml
       - path/to/another_sub_brain.yml
 ```
 
-E.g:
+Example:
 ```yml
   - includes:
       - brains/rolling_shutter_commands.yml
       - brains/find_my_phone.yml
 ```
 
->**Note:** You can only use the `include` statement in the main brain file. 
+[NOTE] 
+-> User can only use the `include` statement in the main brain file. 
+-> the include(s) statement must start with a `-`.
 
->**Note:** the includes statement must start with a `-`
 
+[The default Synapse]
 
-## The default Synapse
+User can create a default synapse in case none of them are matching when an order is given.
 
-You can provide a default synapse in case none of them are matching when an order is given.
->**Note:** This default synapse is optional.
->**Note:** You need to define it in the settings.yml cf :[Setting](settings.md).
+[NOTE] 
+The default synapse is optional.
+It is defined in the settings.yml cf: [Setting] (settings.md).
 
-## Next: Start Kalliope
-Now you take a look into the [CLI documentation](kalliope_cli.md) to learn how to start kalliope.
+**-------**
 
-## Notes
-- What is a [neuron](neurons.md)
-- What is a [signal](signals.md)
+>Start Intelora: 
+Take another step and look into the (intelora_cli.md) where you can find the [CLI documentation], to learn how to start intelora.
+
+>For more information:
+- About [neuron] -> (neurons.md)
+- About [signal] -> (signals.md)
 

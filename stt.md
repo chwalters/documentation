@@ -1,20 +1,23 @@
-# Speech To Text (STT)
+[Speech To Text (STT)]
+
+**-------**
 
 This chapter describes how STT engine works.
 
-The STT is a programs or API that converts the speech into text.
-Each STT has a specific configuration and supports multiple languages.
+The STT is a program or API that converts the speech into text. Each STT has a specific configuration and supports multiple languages.
 
-The configuration of each STT you use must appear in the [settings.yml](settings.md) file.
+The configuration of each STT that must be used, appear in the [settings.yml] -> (settings.md) file.
 
-## Settings
+[Settings]
 
-The setting.yml defines the STT you want to use by default
+The (setting.yml) defines the STT the user wants to use by default.
+
 ```yml
 default_speech_to_text: "type default STT here"
 ```
 
-Then, still in the settings.yml file, each STT must set up its configuration following the 'speech_to_text' tag :
+Then, still in the (settings.yml) file, each STT must set up its configuration following the 'speech_to_text' tag:
+
 ```yml
 speech_to_text:
    - STT1:
@@ -23,26 +26,28 @@ speech_to_text:
    - STT2:
       STT2parameter1: "value option1"
 ```
-Sometime, an API key will be necessary to use an engine. Click on a TTS engine link in the `Current CORE Available STT` section to know which parameter are required.
+Sometime, an API key will be necessary to use an engine. 
+Click on a TTS engine link in the `Current CORE Available STT` section to know which parameter are required.
 
-## Current CORE Available STT
+[Current CORE Available STT]
 
-Core STTs are already packaged with the installation of Kalliope an can be used out of the box. See the [complete list here](stt_list.md).
+Core STTs are already packaged with the installation of Intelora an can be used out of the box. See the [complete list] -> (stt_list.md).
 
-## STT Community Installation
+**STT Community Installation**
 
 Community STTs need to be installed manually.
 
-Use the CLI
+>Use the CLI
+
 ```bash
-kalliope install --git-url <git_url>
+intelora install --git-url <git_url>
 ```
 
-You may be prompted to type your `sudo` password during the process. You can see the list of [available STT here](stt_list.md)
+It may be prompted to type the user's `sudo` password during the process. See the list of [available STT] -> (stt_list.md)
 
-## Full Example
+**Full Example**
 
-In the settings.yml file :
+In the (settings.yml) file:
 
 ```yml
 default_speech_to_text: "google"

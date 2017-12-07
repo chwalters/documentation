@@ -1,6 +1,6 @@
 ---
 
-  - name: "stop-kalliope"
+  - name: "stop-intelora"
     signals:
       - order: "ferme-toi"
     neurons:

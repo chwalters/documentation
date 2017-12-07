@@ -1,17 +1,20 @@
-# Name of the STT
+[Name of the STT]
 
-## Synopsis
+**-------**
+
+[Synopsis]
 
 Description of your STT
 
-## Installation
+**Installation**
+
 ```bash
-kalliope install --git-url https://github.com/username/mystt.git
+intelora install --git-url https://github.com/username/mystt.git
 ```
 
-## Options
+[Options]
 
-(usage of a [table generator](http://www.tablesgenerator.com/markdown_tables) is recommended)
+(usage of a [table generator] (http://www.tablesgenerator.com/markdown_tables) is recommended)
 
 | parameter        | required | default                       | choices                           | comments                     |
 |------------------|----------|-------------------------------|-----------------------------------|------------------------------|
@@ -19,11 +22,3 @@ kalliope install --git-url https://github.com/username/mystt.git
 | parameter_name_2 | no       |                               | possible_value_1,possible_value_2 | description of the parameter |
 | parameter_name_3 | yes      | default_value_if_not_provided |                                   | description of the parameter |
 
-
-## Notes
-
-> **Note:** This is an important note concerning the neuron
-
-## Licence
-
-Here define or link the licence you want to use.

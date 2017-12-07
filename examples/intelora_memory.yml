@@ -6,7 +6,7 @@
     - say:
         message:
           - "Bonjour {{ friend }}"
-        kalliope_memory:
+        intelora_memory:
           friend: "{{ friend }}"
 
 
@@ -17,7 +17,7 @@
     - neurotimer:
         seconds: "{{ time }}"
         synapse: "remember-todo22"
-        kalliope_memory:
+        intelora_memory:
           remember: "{{ remember }}"
           minutes: "{{ time }}"
     - say:
@@ -30,4 +30,4 @@
   neurons:
     - say:
         message:
-          - "does this work? {{ kalliope_memory['remember'] }} and the time? {{ kalliope_memory['minutes'] }}"
+          - "does this work? {{ intelora_memory['remember'] }} and the time? {{ intelora_memory['minutes'] }}"

@@ -1,17 +1,20 @@
-# neuron_name
+[neuron_name]
 
-## Synopsis
+**-------**
+
+[Synopsis]
 
 Little description of what the neuron does.
 
-## Installation
+**Installation**
+
 ```bash
-kalliope install --git-url https://github.com/my_user/my_neuron.git
+intelora install --git-url https://github.com/my_user/my_neuron.git
 ```
 
-## Options
+[Options]
 
-(usage of a [table generator](http://www.tablesgenerator.com/markdown_tables) is recommended)
+(usage of a [table generator] (http://www.tablesgenerator.com/markdown_tables) is recommended)
 
 | parameter        | required | default                       | choices                           | comments                     |
 |------------------|----------|-------------------------------|-----------------------------------|------------------------------|
@@ -20,7 +23,7 @@ kalliope install --git-url https://github.com/my_user/my_neuron.git
 | parameter_name_3 | yes      | default_value_if_not_provided |                                   | description of the parameter |
 
 
-## Return Values
+[Return Values]
 
 Only necessary when the neuron use a template to say something
 
@@ -31,9 +34,10 @@ Only necessary when the neuron use a template to say something
 | value_key | string value                       | string     | "2"                       |
 
 
-## Synapses example
+[Synapses example]
 
-Description of what the synapse will do
+Description of what the synapse will do:
+
 ```yml
  - name: "type here your name"
    signals:
@@ -46,20 +50,13 @@ Description of what the synapse will do
     
 ```
 
-## Templates example 
+[Templates example] 
 
 Description of the template
+
 ```
 This is a var {{ var }} 
 {% for item in items %}
  This is the  {{ item }}  
 {% endfor %}
 ```
-
-## Notes
-
-> **Note:** This is an important note concerning the neuron
-
-## Licence
-
-Here define or link the licence you want to use.

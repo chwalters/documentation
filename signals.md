@@ -1,14 +1,18 @@
-# Signals
+[Signals]
 
-A signal is an input event triggered by a synapse. When a signal is caught, Kalliope runs attached neurons of the synapse.
+**-------**
 
-The syntax is the following
+A Signal is an input event triggered by a synapse. When a signal is caught, Intelora runs attached neurons of the synapse.
+
+The syntax is the following:
+
 ```yml
 signals:
     - signal_type: parameter
 ```
 
-Or
+Or it can be:
+
 ```yml
 signals:
     - signal_type: 
@@ -18,12 +22,12 @@ signals:
 
 
 
-## Available signals
+**Available signals**
 
-Here is a list of core signal that are installed natively with Kalliope
+Here is a list of core signal that are installed natively with Intelora:
 
 | Name                                                   | Description                                                       |
 |--------------------------------------------------------|-------------------------------------------------------------------|
-| [event](../kalliope/signals/event)                     | Launch synapses periodically at fixed times, dates, or intervals. |
-| [mqtt_subscriber](../kalliope/signals/mqtt_subscriber) | Launch synapse from when receive a message from a MQTT broker     |
-| [order](../kalliope/signals/order)                     | Launch synapses from captured vocal order from the microphone     |
+| [event](../intelora/signals/event)                     | Launch synapses periodically at fixed times, dates, or intervals. |
+| [mqtt_subscriber](../intelora/signals/mqtt_subscriber) | Launch synapse from when receive a message from a MQTT broker     |
+| [order](../intelora/signals/order)                     | Launch synapses from captured vocal order from the microphone     |
